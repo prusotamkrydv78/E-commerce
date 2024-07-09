@@ -1,0 +1,22 @@
+.fx {
+  display: flex;
+}
+.cen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+img {
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  text-transform: capitalize;
+}

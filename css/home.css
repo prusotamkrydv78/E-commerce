@@ -1,0 +1,311 @@
+#page1 {
+  background-image: url("../images/home/image.png");
+  background-size: cover;
+  height: 566px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+  position: relative;
+}
+#page1 > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  width: 45vw;
+  padding: 1vw;
+}
+#page1 > div span {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #e53b3c;
+}
+#page1 > div h1 {
+  font-size: 4vw;
+  text-transform: capitalize;
+}
+#page1 > div p {
+  font-size: 17px;
+  line-height: 30px;
+}
+#page1 > div button {
+  width: 18vw;
+  height: 10vh;
+  font-size: 1.2vw;
+  background: black;
+  color: white;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  cursor: pointer;
+  transition: 0.2s linear;
+  max-height: 5rem;
+}
+#page1 > div button:hover {
+  background-color: #e53b3c;
+  box-shadow: 0px 0px 1px 1px #837c7c;
+  border-radius: 2px;
+}
+#page1 .icons {
+  position: absolute;
+  right: 3vw;
+  width: auto;
+  gap: 4vh;
+}
+.icons span i {
+  font-size: 2vw;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+.icons span i:hover {
+  color: #e53b3c;
+}
+
+#page2 {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 20vw;
+  padding: 0 5vw;
+
+  padding: 10vh 5vw;
+}
+
+#page2 > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20vh;
+}
+#page2 > div:nth-child(1) > div:nth-child(2) {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  margin: 3vh 0;
+  bottom: -18vh;
+}
+#page2 h1 {
+  font-size: 42px;
+}
+#page2 div:nth-child(2) .card div:nth-child(1) {
+  position: absolute;
+  left: -33vh;
+  top: 20vh;
+}
+#page2 .card {
+  position: relative;
+}
+#page2 .card > div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+#page2 button {
+  text-transform: uppercase;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background: none;
+  text-align: start;
+  font-weight: 500;
+  letter-spacing: 5px;
+  position: relative;
+
+  cursor: pointer;
+}
+#page2 button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  bottom: -5px;
+  left: -1px;
+  transition: 0.2s linear;
+}
+#page2 button:hover::after {
+  width: 40%;
+  background-color: #e53b3c;
+}
+
+#page3 {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  padding: 5vh 5vw;
+}
+#page3 .category {
+  display: flex;
+  gap: 5vw;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh 0;
+  text-transform: capitalize;
+}
+#page3 .category h2 {
+  font-size: 25px;
+  color: #b7b7b7;
+  font-weight: 600;
+  cursor: pointer;
+}
+.categoryActive {
+  color: black !important;
+}
+#page3 .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3vw;
+}
+#page3 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 19vw;
+}
+#page3 .card .img {
+  width: 100%;
+  height: 42vh;
+  position: relative;
+}
+#page3 .card .layer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#ffffff00, #0000ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 2vh;
+  color: white;
+  padding-bottom: 3vh;
+  transition: 0.3s linear;
+  opacity: 0;
+}
+#page3 .card .layer:hover {
+  opacity: 1;
+}
+
+#page3 .card .layer span:hover {
+  color: #00eeffe6;
+  transition: 0.2s linear;
+}
+#page3 .card .img .layer span {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+#page3 .card .img .layer span i {
+  font-weight: 100;
+  font-size: 30px;
+}
+#page3 .card .name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#page3 .card .price {
+  font-weight: bold;
+}
+
+#page4 {
+  padding: 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  padding-bottom: 30vh;
+}
+#page4 .heading {
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+  align-items: center;
+  justify-content: center;
+}
+#page4 .heading span:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #e53637;
+}
+#page4 .heading span:nth-child(2) {
+  font-size: 36px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+#page4 .content {
+  display: flex;
+  gap: 3vw;
+}
+#page4 .content .item {
+  width: 30vw;
+}
+
+#page4 .item {
+  position: relative;
+}
+#page4 .box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  bottom: -20vh;
+  background: white;
+  padding: 4vh;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: 0.2s linear;
+}
+#page4 .box:hover {
+  box-shadow: 0 0 10px 2px #bdbdbd;
+}
+#page4 .box .date {
+  display: flex;
+  gap: 10px;
+}
+#page4 .box h4 {
+  line-height: 1.5;
+  font-size: 19px;
+}
+#page4 .box button {
+  outline: none;
+  border: none;
+  background: none;
+  text-align: start;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  cursor: pointer;
+  position: relative;
+}
+
+#page4 button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  bottom: -5px;
+  left: -1px;
+  transition: 0.2s linear;
+}
+#page4 button:hover::after {
+  width: 40%;
+  background-color: #e53b3c;
+}
