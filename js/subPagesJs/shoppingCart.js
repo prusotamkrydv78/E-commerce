@@ -79,6 +79,7 @@ for (cancleBtn of cancleBtns) {
     );
     console.log(userData.addtocartproducts.length);
     cartIndex.innerHTML = userData.addtocartproducts.length;
+    cartTotalling();
   });
 }
 
@@ -138,8 +139,9 @@ for (decrementBtn of decrementBtns) {
 //Cart totallin functionality code
 function cartTotalling() {
   let totalPrices = document.querySelectorAll(".total");
-  let subTotalPrice = document.querySelectorAll(".subTotalPrice");
-  console.log(subTotalPrice);
+  let subTotalPrice = document.querySelector(".subTotalPrice");
+  let cartTotalPrice = document.querySelector(".totalPrice");
+
   let totalPriceArray = [];
 
   for (totalPrice of totalPrices) {
@@ -148,12 +150,30 @@ function cartTotalling() {
   }
 
   // add all the element of totalPriceArray
-if(totalPriceArray>0){
+  if (totalPriceArray.length > 0) {
+    let subTotal = totalPriceArray.reduce(function (total, currentValue) {
+      return Number(total) + Number(currentValue);
+    });
+    subTotalPrice.innerText = "Rs: " + subTotal;
 
-  let subTotal = totalPriceArray.reduce(function (total, currentValue) {
-    return Number(total) + Number(currentValue);
-  });
-  subTotalPrice.innerText = subTotal;
-}
+    cartTotalPrice.innerText = "Rs: " + subTotal;
+    cuponCodeFun(subTotal,cartTotalPrice);
+  }
 }
 cartTotalling();
+
+function cuponCodeFun(subTotal,cartTotalPrice) {
+  let couponCode = document.querySelector(".couponCode");
+  let applyCouponBtn = document.querySelector(".applyCouponBtn");
+  let cuponCode = "dis";
+  applyCouponBtn.addEventListener("click", () => {
+    if (couponCode.value == cuponCode) {
+      let totalWithDis = subTotal - (subTotal / 100) * 15;
+      cartTotalPrice.innerText = "Rs: " + totalWithDis;
+      console.log("itemTotal");
+    }else{
+      alert("Invalid Coupon Code");
+      couponCode.value = "";
+    }
+  });
+}
