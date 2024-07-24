@@ -59,6 +59,9 @@ cartIndex.innerHTML = cartIndexValue;
 
 for (addToCart of addToCart) {
   addToCart.addEventListener("click", (e) => {
+    if(loginedUser.username != undefined)
+    {
+      
     allExistingAddToCartProducts =
       JSON.parse(localStorage.getItem("addToCartProducts")) || [];
 
@@ -106,6 +109,11 @@ for (addToCart of addToCart) {
         document.body.removeChild(addedToast);
       }, 100);
     }, 500);
+
+  }
+  else{
+    console.log('plz login')
+  }
   });
 }
 function getUniqueElements(arr) {
@@ -114,8 +122,9 @@ function getUniqueElements(arr) {
   return uniqueArray;
 }
 function addCartProductToUserData(matchedProduct) {
-  if (loginedUser == {}) {
-    console.log("first");
+ 
+  if (loginedUser.username == undefined) {
+    console.log("plz login");
     return;
   } else {
     console.log("first");
@@ -155,6 +164,8 @@ let allFavoriteProducts = [];
 
 for (addToFav of addToFavs) {
   addToFav.addEventListener("click", (e) => {
+    if(loginedUser.username !=undefined){
+   
     let favoriteProduct =
       e.target.parentElement.parentElement.parentElement.parentElement
         .firstElementChild.firstElementChild.innerText ||
@@ -210,7 +221,43 @@ for (addToFav of addToFavs) {
       addedToast.classList.remove("showAddedToast");
       document.body.removeChild(addedToast);
     }, 1500);
+       
+  }
   });
 }
 
 // ***************************profile meanu funtionality is here ***************************
+let profileBtn = document.querySelector(".profile");
+let profileMenu = document.querySelector(".profileMenu");
+let userName = document.querySelector(".userName");
+let fullName = document.querySelector(".fullName");
+let email = document.querySelector('.email')
+let logOutBtn = document.querySelector('.logOut');
+profileBtn.addEventListener("click", () => {
+  profileMenu.classList.toggle("profileMenuShow");
+});
+
+console.log(loginedUser.username);
+if(loginedUser.username == undefined){
+  profileMenu.classList.add('login')
+  profileMenu.innerHTML = ` <div class="close"><i class="ri-close-line"></i></div><div> <a href="/user/register/register.html"
+                  ><span>Login</span></a></div>`
+  console.log("plz login")
+}else{
+
+  userName.innerText=loginedUser.username
+  fullName.innerText = loginedUser.fullName
+  email.innerText = loginedUser.email
+  
+  logOutBtn.addEventListener("click",()=>{
+    localStorage.setItem('loginedUser',JSON.stringify({}));
+    localStorage.setItem('cartIndexValues',0)
+    window.location.href = 'index.html';
+  })
+} 
+
+let close = document.querySelector(".close");
+close.addEventListener("click", () => {
+  profileMenu.classList.remove("profileMenuShow");
+  console.log("close")
+});
