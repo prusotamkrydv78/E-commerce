@@ -44,6 +44,9 @@
   transition: 0.2s linear;
   max-height: 5rem;
 }
+#page1 button a {
+  color: white;
+}
 #page1 > div button:hover {
   background-color: #e53b3c;
   box-shadow: 0px 0px 1px 1px #837c7c;

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/dashboard/global.css" />
+    <link rel="stylesheet" href="products.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>
+        <a href="/pages/index.html" style="color: white; text-decoration: none"
+          >Admin Panel</a
+        >
+      </h2>
+      <ul>
+        <li>
+          <a href="../../dashboard.html">Dashboard</a>
+        </li>
+        <li><a href="../orders/orders.html">Orders</a></li>
+        <li><a href="../products/products.html" class="active">Products</a></li>
+        <li><a href="../customers/customers.html">Customers</a></li>
+        <li><a href="../setting/setting.html">Settings</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div class="product-details">
+        <h3>Add New Product</h3>
+        <form action="#">
+          <div>
+            <label for="productName">Product Name:</label>
+            <input
+              type="text"
+              id="productName"
+              name="productName"
+              class="input"
+            />
+          </div>
+          <div>
+            <label for="productPrice">Price:</label>
+            <input
+              type="number"
+              id="productPrice"
+              name="productPrice"
+              class="input"
+            />
+          </div>
+          <div>
+            <label for="productDescription">Description:</label>
+            <textarea
+              id="productDescription"
+              name="productDescription"
+              rows="4"
+              class="input"
+            ></textarea>
+          </div>
+          <div>
+            <label for="productCategory">Category:</label>
+            <select id="productCategory" name="productCategory" class="input">
+              <option value="mens">Mens</option>
+              <option value="womens">Womens</option>
+              <option value="bags">Bags</option>
+              <option value="shoes">Shoes</option>
+              <option value="kids">Kids</option>
+              <option value="clothing">Clothing</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="productQuantity">Quantity:</label>
+            <input
+              type="number"
+              id="productQuantity"
+              name="productQuantity"
+              class="input"
+            />
+          </div>
+          <div>
+            <label for="productSize">Size:</label>
+            <select id="productSize" name="productSize" class="input">
+              <option value="xs">XS</option>
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="xl">XL</option>
+              <option value="xxl">XXL</option>
+              <option value="3xl">3XL</option>
+              <option value="4xl">4XL</option>
+            </select>
+          </div>
+          <div>
+            <label for="productColor">Color:</label>
+            <select name="productColor" id="productColor">
+              <option value="others">Other</option>
+              <option value="black">Black</option>
+              <option value="white">White</option>
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="purple">Purple</option>
+              <option value="orange">Orange</option>
+              <option value="brown">Brown</option>
+              <option value="gray">Gray</option>
+            </select>
+          </div>
+          <div>
+            <div>
+              <label for="productImage">Image URL:</label>
+              <input
+                type="text"
+                id="productImage"
+                name="productImage"
+                class="input"
+              />
+            </div>
+            <div>
+              <button type="button" class="addMoreImages">
+                Add More Image
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" id="submit">Add Product</button>
+        </form>
+        <div class="imagesField">
+          <div>
+            <input type="text" class="fieldForMoreImage fieldForMoreImage1" placeholder="Paste your image link1" />
+            <input type="text" class="fieldForMoreImage fieldForMoreImage2" placeholder="Paste your image link2" />
+            <input type="text" class="fieldForMoreImage fieldForMoreImage3" placeholder="Paste your image link3" />
+            <input type="text" class="fieldForMoreImage fieldForMoreImage4" placeholder="Paste your image link4" />
+          </div>
+          <div>
+            <button class="addMoreImagesBtn">ADD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./product.js"></script>
+  </body>
+</html>

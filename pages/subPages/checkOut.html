@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/utility.css" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/css/subPageCss/checkout.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav class="fx">
+        <div class="left">MithilaPasal</div>
+
+        <div class="mid cen">
+          <h4><a href="../index.html">Home</a></h4>
+          <h4><a href="../shop.html">Shop</a></h4>
+          <div>
+            <h4><a href="../pages.html">Pages</a></h4>
+            <div class="morePages">
+              <h4><a href="./about.html">About Us</a></h4>
+              <h4><a href="./shopDetails.html">Shop Details</a></h4>
+              <h4><a href="./shoppingCart.html">Shopping Cart</a></h4>
+              <h4><a href="./checkOut.html">Check Out</a></h4>
+              <h4><a href="./blogDetails.html">Blog Details</a></h4>
+            </div>
+          </div>
+          <h4><a href="../blog.html">Blog</a></h4>
+          <h4><a href="../contact.html">Contacts</a></h4>
+        </div>
+
+        <div class="right cen">
+          <div class="search"><i class="ri-search-line"></i></div>
+          <div class="cart"><a href="./shoppingCart.html"><i class="ri-shopping-cart-2-line"></i></a><span class="cartIndex"></span></div>
+        </div>
+      </nav>
+    </header>
+    <div class="searchBar">
+      <div class="closeSearchBar">
+        <i class="ri-close-line"></i>
+      </div>
+      <div class="search">
+        <form action="#">
+          <div>
+            <input type="text" placeholder="Search..." />
+          </div>
+          <div>
+            <button><i class="ri-search-line"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <section>
+      <div class="backButton">
+        <div class="goBack">
+          <span><i class="ri-arrow-left-line"></i></span>
+          <span>Go Back</span>
+        </div>
+      </div>
+      <div id="content">
+        <div class="left">
+          <div class="heading">
+            <span>billing details</span>
+          </div>
+
+          <form>
+            <div>
+              <div>
+                <label for="firstName">First Name</label>
+                <input id="firstName" name="firstName" type="text" />
+              </div>
+              <div>
+                <label for="lastName">Last Name</label>
+                <input id="lastName" name="lastName" type="text" />
+              </div>
+            </div>
+            <div>
+              <label for="country">Country</label>
+              <input type="text" id="" />
+            </div>
+            <div>
+              <label for="address">Address</label>
+              <input
+                type="text"
+                id="streetAddress"
+                name="streetAddress"
+                placeholder="Street Address"
+              />
+              <input
+                type="text"
+                id="optinalAddress"
+                name="optinalAddress"
+                placeholder="Apartment, suite, unite etc (optial)"
+              />
+            </div>
+            <div>
+              <label for="city">Town/City</label>
+              <input type="text" id="city" name="city" />
+            </div>
+            <div>
+              <label for="state">Country/State </label>
+              <input type="text" id="state" name="state" />
+            </div>
+            <div>
+              <label for="postalCode">Postal Code</label>
+              <input type="text" id="postalCode" name="postalCode" />
+            </div>
+            <div>
+              <div>
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" />
+              </div>
+            </div>
+            <div>
+              <input type="checkbox" />
+              <label for="createAccount">Create an account?</label>
+            </div>
+            <p>
+              Create an account by entering the information below. If you are a
+              returning customer please login at the top of the page
+            </p>
+            <div>
+              <label for="password">Account Password</label>
+              <input type="password" id="password" name="password" />
+            </div>
+            <div>
+              <label for="orderNotes">Order Notes</label>
+              <input
+                type="text"
+                name="orderNotes"
+                placeholder="
+Notes about your order, e.g. special notes for delivery.
+"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="right">
+          <div>
+            <h1>Your order</h1>
+          </div>
+          <div>
+            <div class="heading">
+              <span>Product</span>
+              <span>Total</span>
+            </div>
+            <div class="product">
+              <div>
+                <span class="number">01.</span>
+                <div class="name">Vanilla salted caramel</div>
+              </div>
+              <div class="price">$5.00</div>
+            </div>
+            <div class="product">
+              <div>
+                <span class="number">01.</span>
+                <div class="name">Vanilla salted caramel</div>
+              </div>
+              <div class="price">$5.00</div>
+            </div>
+            <div class="product">
+              <div>
+                <span class="number">01.</span>
+                <div class="name">Vanilla salted caramel</div>
+              </div>
+              <div class="price">$5.00</div>
+            </div>
+          </div>
+          <div>
+            <div class="subtotal">
+              <span>Subtotal</span>
+              <span>$5.00</span>
+            </div>
+            <div class="total">
+              <span>Total</span>
+              <span>$5.00</span>
+            </div>
+          </div>
+          <div>
+            <button>Place order</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div>
+        <div>
+          <div>MithilaPasal</div>
+          <div>
+            The customer is at the heart of our unique business model, which
+            includes design.
+          </div>
+          <div><img src="../../images/home/payment.png" alt="" /></div>
+        </div>
+        <div>
+          <div><strong>SHOPPING</strong></div>
+          <div>
+            <h4>Clothing Store</h4>
+            <h4>Trending Shoes</h4>
+            <h4>Accessories</h4>
+            <h4>Sale</h4>
+          </div>
+        </div>
+        <div>
+          <div><strong>SHOPPING</strong></div>
+          <div>
+            <h4>Contact Us</h4>
+            <h4>Payment Methods</h4>
+            <h4>Delivery</h4>
+            <h4>Return & Exchanges</h4>
+          </div>
+        </div>
+        <div>
+          <div><strong>NEWLETTER</strong></div>
+          <div>
+            Be the first to know about new <br />
+            arrivals, look books, sales & promos!
+          </div>
+          <div>
+            <form action="#">
+              <div>
+                <input type="text" placeholder="Your Email" />
+                <span><i class="ri-mail-line"></i></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div>
+        Copyright &copy; 2024 All right reserved | This template is made by
+        <span> MithilaPasal</span>
+      </div>
+    </footer>
+
+    <script src="/global.js"></script>
+  </body>
+</html>

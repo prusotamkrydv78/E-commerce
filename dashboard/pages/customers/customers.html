@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="cutomers.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Admin Panel</h2>
+      <ul>
+        <li>
+          <a href="../../dashboard.html">Dashboard</a>
+        </li>
+
+        <li><a href="../orders/orders.html"  >Orders</a></li>
+        <li><a href="../products/products.html" >Products</a></li>
+        <li><a href="../customers/customers.html" class="active">Customers</a></li>
+        <li><a href="../setting/setting.html">Settings</a></li>
+      </ul>
+    </div>
+    <div class="content">
+   <main class="main-content">
+        <section class="customers">
+            <h1>Customers</h1>
+            <div class="customer-list">
+                <div class="customer-card">
+                    <img src="customer1.jpg" alt="Customer 1">
+                    <div class="customer-info">
+                        <h2>John Doe</h2>
+                        <p>Email: john.doe@example.com</p>
+                        <p>Phone: +1 123 456 7890</p>
+                        <p>Joined: Jan 1, 2023</p>
+                    </div>
+                </div>
+                <div class="customer-card">
+                    <img src="customer2.jpg" alt="Customer 2">
+                    <div class="customer-info">
+                        <h2>Jane Smith</h2>
+                        <p>Email: jane.smith@example.com</p>
+                        <p>Phone: +1 234 567 8901</p>
+                        <p>Joined: Feb 15, 2023</p>
+                    </div>
+                </div>
+                <!-- Add more customer cards -->
+            </div>
+        </section>
+    </main> 
+    </div>
+  </body>
+</html>

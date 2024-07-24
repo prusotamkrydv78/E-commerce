@@ -9,6 +9,42 @@ body {
   height: 100%;
   width: 100%;
 }
+.addedToast {
+  position: fixed;
+  opacity: 0;
+  top: -10vh;
+  transition: 0.5s linear;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  padding: 0 1vw;
+  height: 3rem;
+  display: flex;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  gap: 1vw;
+  font-weight: bold;
+  border-radius: 5px;
+  background: #9c9c9c4a;
+  box-shadow: 0px 0px 2px 4px #d4d2d2bf;
+  backdrop-filter: blur(16px);
+}
+.showAddedToast {
+  opacity: 1;
+  top: 10vh;
+}
+.addedToast > div:nth-child(1) {
+  background: lime;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
 header {
   height: 5rem;
 }
@@ -32,6 +68,35 @@ nav .mid h4 {
   letter-spacing: 0.5px;
   cursor: pointer;
 }
+nav .mid div {
+  position: relative;
+}
+nav .mid div .morePages {
+  position: absolute;
+  width: 12rem;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2vh;
+  padding: 2vh 0;
+  padding-left: 1vw;
+  color: white;
+  border-radius: 5px;
+  left: -3vw;
+  opacity: 0;
+  top: 15vh;
+  transition: 0.5s linear;
+  z-index: -1;
+}
+nav .mid > div:hover .morePages {
+  top: 4vh;
+  opacity: 1;
+  z-index: 99;
+}
+nav .mid .morePages h4 a {
+  color: white;
+}
 nav .mid h4 a {
   text-decoration: none;
   color: black;
@@ -42,8 +107,90 @@ nav .right {
 }
 nav .right div {
   cursor: pointer;
+  position: relative;
+}
+.cartIndex {
+  position: absolute;
+  font-size: 15px;
+  background: black;
+  color: white;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: -10px;
+  border-radius: 50%;
+}
+.profile {
+  height: 2.8rem;
+  width: 2.8rem;
+  background: #dbdbdb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 1px #a4a4a4;
+  transition: 0.2s linear;
+}
+.profile:hover {
+  box-shadow: 0px 0px 3px 1px #a4a4a4 inset;
+  background: white;
 }
 
+.searchBar {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: #000000a8;
+  z-index: 99;
+  top: 0;
+  backdrop-filter: blur(5px);
+  transition: 0.3s linear;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.showSearchBar {
+  opacity: 1;
+  visibility: visible;
+}
+.searchBar .closeSearchBar {
+  position: absolute;
+  top: 6vh;
+  font-size: 3vw;
+  background: white;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 6px 2px white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.searchBar form {
+  display: flex;
+}
+.search input {
+  border: none;
+  outline: none;
+  font-size: 30px;
+  padding: 2vh 2vw;
+  border-radius: 10px 0px 0px 10px;
+}
+.searchBar button {
+  font-size: 30px;
+  padding: 2vh 1.5vw;
+  background: white;
+  border: none;
+  outline: none;
+  border-radius: 0px 10px 10px 0px;
+}
 .backButton {
   height: 10vh;
   display: flex;
@@ -71,6 +218,13 @@ nav .right div {
 
 .backButton > div span:nth-child(2):hover::after {
   width: 100%;
+}
+
+i {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
 }
 footer {
   display: flex;

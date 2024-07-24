@@ -1,0 +1,245 @@
+.content {
+  margin-left: 250px;
+  padding: 20px;
+}
+body{
+  overflow-x: hidden;
+}
+.content h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+
+  background: #e9e9e9;
+}
+
+.content h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.product-details {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-details h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+.product-details form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.product-details > form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+.product-details label {
+  font-weight: normal;
+}
+.product-details input,
+textarea,
+select {
+  height: 3rem;
+  background: white;
+  outline: none;
+  border: 1px solid #e1e1e1;
+  font-size: 16px;
+  padding-left: 1.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.product-details button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.product-details button:hover {
+  background-color: #45a049;
+}
+.popup-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.popup-btn:hover {
+  background-color: #0056b3;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.select-box {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.select-box select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.sizeSubmit {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sizeSubmit:hover {
+  background-color: #218838;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.select-box {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.select-box select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.sizeSubmit {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sizeSubmit:hover {
+  background-color: #218838;
+}
+select:not(:-internal-list-box) {
+  color: blue;
+}
+
+.imagesField{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: #000000c7;
+  overflow: hidden;
+  backdrop-filter: blur(7px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3vh;
+  transition: .5s linear;
+  opacity: 0;
+  visibility: hidden;
+}
+.imagesFieldShow{ 
+  opacity: 1;
+  visibility: visible;
+}
+.imagesField > div:first-child{
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 70%;
+}.imagesField input{
+  border-radius: 3px;
+}
+.imagesField button{
+  width: 10vw;
+    font-size: 20px;
+    font-weight: bold; 
+    color: black;
+    letter-spacing: 1px;
+}
