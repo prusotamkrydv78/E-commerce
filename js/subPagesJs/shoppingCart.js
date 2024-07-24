@@ -139,11 +139,21 @@ for (decrementBtn of decrementBtns) {
 function cartTotalling() {
   let totalPrices = document.querySelectorAll(".total");
   let subTotalPrice = document.querySelectorAll(".subTotalPrice");
+  console.log(subTotalPrice);
+  let totalPriceArray = [];
 
   for (totalPrice of totalPrices) {
-   let totalPrices = totalPrice.innerText.slice(4)
-   let addPrice = totalPrices
-   
+    let totalPrices = totalPrice.innerText.slice(4);
+    totalPriceArray.push(totalPrices);
   }
-  console.log(Number(addPrice)+Number(totalPrices));
+
+  // add all the element of totalPriceArray
+if(totalPriceArray>0){
+
+  let subTotal = totalPriceArray.reduce(function (total, currentValue) {
+    return Number(total) + Number(currentValue);
+  });
+  subTotalPrice.innerText = subTotal;
 }
+}
+cartTotalling();
