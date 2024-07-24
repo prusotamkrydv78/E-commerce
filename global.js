@@ -212,3 +212,5 @@ for (addToFav of addToFavs) {
     }, 1500);
   });
 }
+
+// ***************************profile meanu funtionality is here ***************************

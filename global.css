@@ -112,17 +112,61 @@ nav .right div {
 .profileMenu{
   display: flex;
     flex-direction: column;
-    gap: 3vh;
+ 
+    transition: .3s linear;
+    transform: translateX(100%);
     position: fixed;
     z-index: 99;
     right: 0;
     background: #00ffff4d;
-    height: 15rem;
-    width: 14rem;
-    align-items: center;
-    padding: 4vh 0px;
+    height: 20rem;
+    width: 18rem;
+    align-items: center; 
     border-radius: 10px;
     backdrop-filter: blur(5px);
+}
+.profileMenu .upper{
+  height: 30%;
+  width: 100%;
+font-size: 18px;
+  display: flex;
+  justify-content: center;
+  padding-top: 5vh;
+
+  background: #d915ff96;
+  border-radius: inherit;
+  backdrop-filter: inherit;
+
+}
+.profileMenu .profile {
+  position: absolute;
+  top: 11vh;
+}
+.profileMenu .lower{
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  align-items: center;
+  padding-top: 5vh;
+
+  background: #000000cc;
+    border-radius: inherit; 
+    color: gainsboro;
+}
+.profileMenu .lower div{
+text-transform: capitalize;
+}
+.profileMenu .lower .email{
+  text-transform: none;
+}
+.profileMenu span{ 
+  font-size: 18px;
+  cursor: pointer;
+}
+.profileMenu span:hover{ 
+  color: white;
 }
 .cartIndex {
   position: absolute;
