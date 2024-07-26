@@ -82,6 +82,7 @@ for (cancleBtn of cancleBtns) {
     cartTotalling();
   });
 }
+cartIndex.innerHTML = userData.addtocartproducts.length;
 
 function removeSpecificElement(arr, elementToRemove) {
   let uniqueSet = new Set(arr);

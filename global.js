@@ -1,5 +1,5 @@
 //search tab functiona adding
-
+document.querySelector('.cartIndex').innerText = 0
 // addingToastCreating('<i class="ri-check-double-line"></i>', "added");
 let loginedUser = JSON.parse(localStorage.getItem("loginedUser")) || {};
 let searchBtn = document.querySelector(".search");
@@ -54,66 +54,78 @@ let allExistingAddToCartProducts = [];
 let cartIndexValue = 0;
 let cartIndex = document.querySelector(".cartIndex");
 cartIndex.innerHTML = cartIndexValue;
-cartIndexValue = localStorage.getItem("cartIndexValues");
+cartIndexValue = localStorage.getItem("cartIndexValues")||0;
 cartIndex.innerHTML = cartIndexValue;
 
 for (addToCart of addToCart) {
   addToCart.addEventListener("click", (e) => {
-    if(loginedUser.username != undefined)
-    {
-      
-    allExistingAddToCartProducts =
-      JSON.parse(localStorage.getItem("addToCartProducts")) || [];
+    if (loginedUser.username != undefined) {
+      allExistingAddToCartProducts =
+        JSON.parse(localStorage.getItem("addToCartProducts")) || [];
 
-    let addToCartProduct =
-      e.target.parentElement.previousElementSibling.getAttribute("alt") ||
-      e.target.parentElement.parentElement.parentElement.parentElement
-        .firstElementChild.firstElementChild.innerText;
+      let addToCartProduct =
+        e.target.parentElement.previousElementSibling.getAttribute("alt") ||
+        e.target.parentElement.parentElement.parentElement.parentElement
+          .firstElementChild.firstElementChild.innerText;
 
-    let matchedProduct = products.find((product) => {
-      if (product.name == addToCartProduct) {
-        return product;
-      }
-    });
-
-    addCartProductToUserData(matchedProduct);
-
-    allExistingAddToCartProducts.push(matchedProduct);
-
-    allAddToCartProducts = removeDuplicates(allExistingAddToCartProducts);
-    console.log(allAddToCartProducts);
-    localStorage.setItem(
-      "addToCartProducts",
-      JSON.stringify(allAddToCartProducts)
-    );
-    let addedToCartProducts = JSON.parse(
-      localStorage.getItem("addToCartProducts")
-    );
-
-    function removeDuplicates(arr) {
-      return arr.filter((obj, index, self) => {
-        return index === self.findIndex((t) => t.id === obj.id);
+      let matchedProduct = products.find((product) => {
+        if (product.name == addToCartProduct) {
+          return product;
+        }
       });
-    }
+      let allUser = JSON.parse(localStorage.getItem("allUserDetails")) || [];
+      let userData = allUser.find(
+        (user) => user.username == loginedUser.username
+      );
 
-    cartIndexValue = localStorage.getItem("cartIndexValues");
-    cartIndex.innerHTML = cartIndexValue;
+      let isProductAdded = userData.addtocartproducts.includes(
+        matchedProduct.id
+      );
 
-    addingToastCreating('<i class="ri-check-double-line"></i>', "added");
-    let addedToast = document.querySelector(".addedToast");
+      if (isProductAdded) {
+        addingToastCreating(
+          '<i class="ri-check-double-line"></i>',
+          "already added"
+        );
+      } else {
+        addingToastCreating('<i class="ri-check-double-line"></i>', "added");
+      }
 
-    addedToast.classList.add("showAddedToast");
-    setTimeout(() => {
-      addedToast.classList.remove("showAddedToast");
+      addCartProductToUserData(matchedProduct);
+
+      allExistingAddToCartProducts.push(matchedProduct);
+
+      allAddToCartProducts = removeDuplicates(allExistingAddToCartProducts);
+      console.log(allAddToCartProducts);
+      localStorage.setItem(
+        "addToCartProducts",
+        JSON.stringify(allAddToCartProducts)
+      );
+      let addedToCartProducts = JSON.parse(
+        localStorage.getItem("addToCartProducts")
+      );
+
+      function removeDuplicates(arr) {
+        return arr.filter((obj, index, self) => {
+          return index === self.findIndex((t) => t.id === obj.id);
+        });
+      }
+
+      cartIndexValue = localStorage.getItem("cartIndexValues");
+      cartIndex.innerHTML = cartIndexValue;
+
+      let addedToast = document.querySelector(".addedToast");
+
+      addedToast.classList.add("showAddedToast");
       setTimeout(() => {
-        document.body.removeChild(addedToast);
-      }, 100);
-    }, 500);
-
-  }
-  else{
-    console.log('plz login')
-  }
+        addedToast.classList.remove("showAddedToast");
+        setTimeout(() => {
+          document.body.removeChild(addedToast);
+        }, 100);
+      }, 500);
+    } else {
+      console.log("plz login");
+    }
   });
 }
 function getUniqueElements(arr) {
@@ -122,7 +134,6 @@ function getUniqueElements(arr) {
   return uniqueArray;
 }
 function addCartProductToUserData(matchedProduct) {
- 
   if (loginedUser.username == undefined) {
     console.log("plz login");
     return;
@@ -159,105 +170,116 @@ function addCartProductToUserData(matchedProduct) {
 
 /// HERE CREATING OBJECT FOR FAVORITE PRODUCTS AND ADDING THEM INTO LOCALSTORAGE
 let addToFavs = document.querySelectorAll(".addToFav");
-let favoriteProducts = [];
-let allFavoriteProducts = [];
+let favoriteProducts = JSON.parse(localStorage.getItem("favoriteProducts"))||[];
+let allFavoriteProducts = JSON.parse(localStorage.getItem("favoriteProducts")) ||[];
+console.log(allFavoriteProducts)
 
 for (addToFav of addToFavs) {
   addToFav.addEventListener("click", (e) => {
-    if(loginedUser.username !=undefined){
-   
-    let favoriteProduct =
-      e.target.parentElement.parentElement.parentElement.parentElement
-        .firstElementChild.firstElementChild.innerText ||
-      e.target.parentElement.parentElement.previousElementSibling.getAttribute(
-        "alt"
-      );
+    console.log(allFavoriteProducts)
+    if (loginedUser.username != undefined) {
+      let favoriteProduct =
+        e.target.parentElement.parentElement.parentElement.parentElement
+          .firstElementChild.firstElementChild.innerText ||
+        e.target.parentElement.parentElement.previousElementSibling.getAttribute(
+          "alt"
+        );
 
-    let matchedProduct = products.find((product) => {
-      if (product.name == favoriteProduct) {
-        return product;
+      let matchedProduct = products.find((product) => {
+        if (product.name == favoriteProduct) {
+          return product;
+        }
+      });
+      function findItem(arr, item) {
+        return arr.some(element => element.id === item.id);
       }
-    });
+      let isProductAdded = findItem(favoriteProducts, matchedProduct);
+      console.log(isProductAdded);
 
-    if (favoriteProducts.includes(matchedProduct)) {
-      addingToastCreating(
-        '<i class="ri-check-double-line"></i>',
-        "already added"
+      if (isProductAdded) {
+        addingToastCreating(
+          '<i class="ri-check-double-line"></i>',
+          "already added"
+        );
+        let addedToast = document.querySelector(".addedToast");
+        addedToast.classList.add("showAddedToast");
+        setTimeout(() => {
+          addedToast.classList.remove("showAddedToast");
+
+          document.body.removeChild(addedToast);
+        }, 1500);
+        return;
+      }   else {
+        if (loginedUser) {
+          favoriteProducts.push({
+            ...matchedProduct,
+            username: loginedUser.username,
+          });
+        }
+      }
+      function removeDuplicates(arr) {
+        return arr.filter((obj, index, self) => {
+          return index === self.findIndex((t) => t.id === obj.id);
+        });
+      } 
+
+      allFavoriteProducts = removeDuplicates(favoriteProducts);
+      localStorage.setItem(
+        "favoriteProducts",
+        JSON.stringify(allFavoriteProducts)
       );
+
+      addingToastCreating('<i class="ri-check-double-line"></i>', "  added");
       let addedToast = document.querySelector(".addedToast");
       addedToast.classList.add("showAddedToast");
       setTimeout(() => {
         addedToast.classList.remove("showAddedToast");
-
         document.body.removeChild(addedToast);
       }, 1500);
-      return;
-    } else if (allFavoriteProducts.includes(matchedProduct)) {
-      return;
-    } else {
-      if (loginedUser) {
-        favoriteProducts.push({
-          ...matchedProduct,
-          username: loginedUser.username,
-        });
-      }
     }
-    function removeDuplicates(arr) {
-      return arr.filter((obj, index, self) => {
-        return index === self.findIndex((t) => t.id === obj.id);
-      });
-    }
-
-    allFavoriteProducts = removeDuplicates(favoriteProducts);
-    localStorage.setItem(
-      "favoriteProducts",
-      JSON.stringify(allFavoriteProducts)
-    );
-
-    addingToastCreating('<i class="ri-check-double-line"></i>', "  added");
-    let addedToast = document.querySelector(".addedToast");
-    addedToast.classList.add("showAddedToast");
-    setTimeout(() => {
-      addedToast.classList.remove("showAddedToast");
-      document.body.removeChild(addedToast);
-    }, 1500);
-       
-  }
   });
-}
+}  
+
 
 // ***************************profile meanu funtionality is here ***************************
 let profileBtn = document.querySelector(".profile");
 let profileMenu = document.querySelector(".profileMenu");
 let userName = document.querySelector(".userName");
 let fullName = document.querySelector(".fullName");
-let email = document.querySelector('.email')
-let logOutBtn = document.querySelector('.logOut');
+let email = document.querySelector(".email");
+let logOutBtn = document.querySelector(".logOut");
 profileBtn.addEventListener("click", () => {
   profileMenu.classList.toggle("profileMenuShow");
 });
 
 console.log(loginedUser.username);
-if(loginedUser.username == undefined){
-  profileMenu.classList.add('login')
-  profileMenu.innerHTML = ` <div class="close"><i class="ri-close-line"></i></div><div> <a href="/user/register/register.html"
-                  ><span>Login</span></a></div>`
-  console.log("plz login")
-}else{
+if (loginedUser.username == undefined) {
+  profileMenu.classList.add("login");
+  profileMenu.innerHTML = ` <div class="close"><i class="ri-close-line"></i></div><div> <a href="/user/login/login.html"
+                  ><span>Login</span></a></div>`;
+  console.log("plz login");
+} else {
+  let allUser = JSON.parse(localStorage.getItem("allUserDetails"));
 
-  userName.innerText=loginedUser.username
-  fullName.innerText = loginedUser.fullName
-  email.innerText = loginedUser.email
-  
-  logOutBtn.addEventListener("click",()=>{
-    localStorage.setItem('loginedUser',JSON.stringify({}));
-    localStorage.setItem('cartIndexValues',0)
-    window.location.href = 'index.html';
-  })
-} 
+  let userData = allUser.find((user) => user.username == loginedUser.username);
+  cartIndex.innerHTML = userData.addtocartproducts.length;
+  userName.innerText = loginedUser.username;
+  fullName.innerText = loginedUser.fullName;
+  email.innerText = loginedUser.email;
+
+  logOutBtn.addEventListener("click", () => {
+    localStorage.setItem("loginedUser", JSON.stringify({}));
+    localStorage.setItem("cartIndexValues", 0);
+    console.log("hi");
+    window.location.href = "http://127.0.0.1:5500/pages/index.html";
+  });
+}
 
 let close = document.querySelector(".close");
 close.addEventListener("click", () => {
   profileMenu.classList.remove("profileMenuShow");
-  console.log("close")
+  console.log("close");
 });
+
+
+ 
